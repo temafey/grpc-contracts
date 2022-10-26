@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package user_service.service.v1;
 
-option go_package = "github.com/temafey/grpc-contracts/gen/go/service/v1;proto_user_service";
+option go_package = "github.com/temafey/grpc-contracts/gen/go/user_service/service/v1;proto_user_service";
 
 import "google/api/annotations.proto";
-import "model/v1/user.proto";
+import "user_service/model/v1/user.proto";
 
 service UserService {
   rpc GetUsers(GetUsersRequest) returns (GetUserResponse) {

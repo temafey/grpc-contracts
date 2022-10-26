@@ -1,4 +1,4 @@
-// source: service/v1/user.proto
+// source: user_service/service/v1/user.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -21,10 +21,10 @@ var global = (function() {
   return Function('return this')();
 }.call(null));
 
-var google_api_annotations_pb = require('../../google/api/annotations_pb.js');
+var google_api_annotations_pb = require('../../../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);
-var model_v1_user_pb = require('../../model/v1/user_pb.js');
-goog.object.extend(proto, model_v1_user_pb);
+var user_service_model_v1_user_pb = require('../../../user_service/model/v1/user_pb.js');
+goog.object.extend(proto, user_service_model_v1_user_pb);
 goog.exportSymbol('proto.user_service.service.v1.GetUserResponse', null, global);
 goog.exportSymbol('proto.user_service.service.v1.GetUsersRequest', null, global);
 goog.exportSymbol('proto.user_service.service.v1.UpdateUserRequest', null, global);
@@ -397,7 +397,7 @@ proto.user_service.service.v1.GetUserResponse.prototype.toObject = function(opt_
 proto.user_service.service.v1.GetUserResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     usersList: jspb.Message.toObjectList(msg.getUsersList(),
-    model_v1_user_pb.User.toObject, includeInstance)
+    user_service_model_v1_user_pb.User.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -435,8 +435,8 @@ proto.user_service.service.v1.GetUserResponse.deserializeBinaryFromReader = func
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new model_v1_user_pb.User;
-      reader.readMessage(value,model_v1_user_pb.User.deserializeBinaryFromReader);
+      var value = new user_service_model_v1_user_pb.User;
+      reader.readMessage(value,user_service_model_v1_user_pb.User.deserializeBinaryFromReader);
       msg.addUsers(value);
       break;
     default:
@@ -473,7 +473,7 @@ proto.user_service.service.v1.GetUserResponse.serializeBinaryToWriter = function
     writer.writeRepeatedMessage(
       1,
       f,
-      model_v1_user_pb.User.serializeBinaryToWriter
+      user_service_model_v1_user_pb.User.serializeBinaryToWriter
     );
   }
 };
@@ -485,7 +485,7 @@ proto.user_service.service.v1.GetUserResponse.serializeBinaryToWriter = function
  */
 proto.user_service.service.v1.GetUserResponse.prototype.getUsersList = function() {
   return /** @type{!Array<!proto.user_service.model.v1.User>} */ (
-    jspb.Message.getRepeatedWrapperField(this, model_v1_user_pb.User, 1));
+    jspb.Message.getRepeatedWrapperField(this, user_service_model_v1_user_pb.User, 1));
 };
 
 
@@ -823,7 +823,7 @@ proto.user_service.service.v1.UpdateUserResponse.prototype.toObject = function(o
  */
 proto.user_service.service.v1.UpdateUserResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    user: (f = msg.getUser()) && model_v1_user_pb.User.toObject(includeInstance, f)
+    user: (f = msg.getUser()) && user_service_model_v1_user_pb.User.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -861,8 +861,8 @@ proto.user_service.service.v1.UpdateUserResponse.deserializeBinaryFromReader = f
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new model_v1_user_pb.User;
-      reader.readMessage(value,model_v1_user_pb.User.deserializeBinaryFromReader);
+      var value = new user_service_model_v1_user_pb.User;
+      reader.readMessage(value,user_service_model_v1_user_pb.User.deserializeBinaryFromReader);
       msg.setUser(value);
       break;
     default:
@@ -899,7 +899,7 @@ proto.user_service.service.v1.UpdateUserResponse.serializeBinaryToWriter = funct
     writer.writeMessage(
       1,
       f,
-      model_v1_user_pb.User.serializeBinaryToWriter
+      user_service_model_v1_user_pb.User.serializeBinaryToWriter
     );
   }
 };
@@ -911,7 +911,7 @@ proto.user_service.service.v1.UpdateUserResponse.serializeBinaryToWriter = funct
  */
 proto.user_service.service.v1.UpdateUserResponse.prototype.getUser = function() {
   return /** @type{?proto.user_service.model.v1.User} */ (
-    jspb.Message.getWrapperField(this, model_v1_user_pb.User, 1));
+    jspb.Message.getWrapperField(this, user_service_model_v1_user_pb.User, 1));
 };
 
 

@@ -1,16 +1,115 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "model/v1/user.proto",
+    "title": "user_service/service/v1/user.proto",
     "version": "version not set"
   },
+  "tags": [
+    {
+      "name": "UserService"
+    }
+  ],
   "consumes": [
     "application/json"
   ],
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/v1/get-users": {
+      "get": {
+        "operationId": "UserService_GetUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "age",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/update-user/{id}": {
+      "patch": {
+        "operationId": "UserService_UpdateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "age": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "email": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    }
+  },
   "definitions": {
     "protobufAny": {
       "type": "object",
@@ -38,6 +137,43 @@
           "items": {
             "$ref": "#/definitions/protobufAny"
           }
+        }
+      }
+    },
+    "v1GetUserResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1User"
+          }
+        }
+      }
+    },
+    "v1UpdateUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/v1User"
+        }
+      }
+    },
+    "v1User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "email": {
+          "type": "string"
         }
       }
     }
